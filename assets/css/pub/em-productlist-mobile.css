@@ -1,0 +1,203 @@
+
+.productlist-ul {
+	padding: 0;
+	margin: 0;
+	clear: both;
+
+	/*display: flex;*/
+}
+
+.productlist-container {
+	list-style: none;
+
+	display: flex;
+
+	flex-direction: column;
+
+	align-items: center;
+
+	font-size: 1.6rem;
+
+	margin-bottom: 2rem;
+
+}
+
+
+.productlist-container:nth-child(odd) {
+	background-color: #eee;
+}
+
+@media only screen and (min-width: 600px) {
+
+	.productlist-ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.productlist-container {
+		width: 50%;
+		margin-bottom: 0;
+		padding-top: 1rem;
+	}
+	.productlist-container:nth-child(odd) {
+		background-color: inherit;
+	}
+
+	.productlist-container:nth-child(4n) {
+		background-color: #eee;
+	}
+
+	.productlist-container:nth-child(4n+1) {
+		background-color: #eee;
+	}
+
+	
+} 
+
+.productlist-title-container {
+	margin: 0.5rem 0;
+}
+
+.productlist-title {
+	font-size: 2rem;
+	text-decoration: none;
+	color: #000;
+}
+
+.productlist-title-container,
+.productlist-terning,
+.productlist-bestill-container,
+.productlist-logo-container {
+	/*align-self: center;*/
+}
+
+.productlist-title,
+.productlist-info-fem,
+.productlist-info-en {
+	font-weight: 700;
+}
+
+
+.productlist-logo-container {
+	/*display: flex;
+	justify-content: center;*/
+	max-width: 90%;
+}
+
+.productlist-logo {
+	width: 25rem;
+	height: auto;
+
+}
+
+.productlist-info-fem:before,
+.productlist-info-seks:before,
+.productlist-info-syv:before,
+.productlist-info-atte:before {
+	content: '\2022	';
+	color: gold;
+	text-shadow: 0 0 1px black;
+	font-size: 2rem;
+	margin-right: 0.5rem;
+
+	/*margin-bottom: 1.5rem;*/
+}
+
+.productlist-info-container,
+.productlist-list-container {
+	width: 25rem;
+	max-width: 90%;
+	/*margin: 1.5rem 0;*/
+	/*margin: 0 6rem;*/
+}
+
+.productlist-info-container {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.productlist-list-container {
+	margin-bottom: 3rem;
+}
+
+.productlist-info-fem,
+.productlist-info-seks,
+.productlist-info-syv,
+.productlist-info-atte {
+	margin-bottom: 1rem;
+}
+
+.productlist-end-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.productlist-terning {
+	width: 50px;
+	height: 50px;
+
+	background-color: #e22;
+}
+
+/* dice dimensions */
+.rect-svg {
+	height: 50px;
+	width: 50px;
+}
+
+/* dice eye color */
+.circle-svg {
+	fill: #ffffff;
+}
+
+.productlist-bestill-container {
+	margin: 2rem 0;
+}
+
+.productlist-bestill {
+	text-align: center;
+	/*display: flex;
+	justify-content: center;*/
+	margin-bottom: 1rem;
+}
+
+.productlist-bestilltext {
+	/*margin-top: 1rem;
+	text-align: center;*/
+}
+
+.productlist-link {
+	padding: 1rem 2rem;
+
+	background-image: linear-gradient(hsl(120, 70%, 60%) 0%, hsl(120, 70%, 50%) 100%);
+	border: solid 2px hsl(120, 50%, 70%);
+	border-radius: 5px;
+
+	font-size: 2.2rem;
+	font-weight: 700;
+	color: #fff;
+	text-shadow: 0 0 2px #000;
+	font-family: arial;
+	text-decoration: none;
+
+	white-space: nowrap;
+}
+
+.productlist-bestill-mobile {
+	position: fixed;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+}
+
+.productlist-svg {
+	filter: drop-shadow(1px 1px 1px #333);
+}
+
+.productlist-thumb {
+	fill: #fff;
+}
+
+.productlist-logo-ls {
+	text-align: center;
+}
