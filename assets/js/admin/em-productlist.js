@@ -130,7 +130,7 @@
 	let container_sort = newdiv({class: 'productlist-sort-container'});
 	container_sort.appendChild(newinput({
 		name: 'productlist_sort', 
-		title: 'Sortering', 
+		title: 'Rangering', 
 		notData: true, 
 		sort: 'default', 
 		type: 'number',
@@ -142,7 +142,7 @@
 	for (let sort of productlist_meta['tax'])
 		container_sort.appendChild(newinput({
 			name: 'productlist_sort_'+sort, 
-			title: 'Sortering '+sort.replace(/-/g, ' '), 
+			title: 'Rangering '+sort.replace(/-/g, ' '), 
 			notData: true, 
 			sort: sort, 
 			type: 'number',
@@ -167,18 +167,22 @@
 
 	// container.appendChild(info_container);
 
-	// container.appendChild(dicedropdown());
+	let input_container = newdiv({class: 'product-flexbox'});
 
-	container.appendChild(newtextarea({
+	// container.appendChild(dicedropdown());
+	input_container.appendChild(newtextarea({
+			name: 'productdescription',
+			title: 'Beskrivelse'
+		}));
+
+	input_container.appendChild(newtextarea({
 		name: 'productprice',
 		title: 'Pris',
 		class: 'productlist-price'
 	}));
 
-	container.appendChild(newtextarea({
-		name: 'productdescription',
-		title: 'Beskrivelse'
-	}));
+	container.appendChild(input_container);
+	
 
 	// adding existing category
 	jQuery('#productlisttypechecklist').on('change', function(e) {

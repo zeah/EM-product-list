@@ -3,6 +3,10 @@
 	flex-wrap: wrap;
 }
 
+.productlist-input-container {
+	display: inline-block;
+}
+
 .productlist-meta-container input {
 	width: 300px;
 	margin: 0 10px 10px 0;
@@ -12,25 +16,34 @@
 	width: 150px;
 }
 
+
+.product-flexbox {
+	display: flex;
+	flex-wrap: wrap-reverse;
+	height: 300px;
+}
+
 .productlist-info-container {
-	display: inline-grid;
 	grid-template-columns: 1fr 1fr;
 }
 
 .productlist-input-title {
 	font-size: 16px;
+	font-weight: bold;
 }
 
 .productlist-meta-container textarea {
 	width: 600px;
-	height: 300px;
 	max-width: 90%;
+	height: 90%;
+	/*height: 300px;*/
+	font-family: monospace;
 	/*margin: 0 10px 10px 0;*/
 }
 
 .productlist-price {
-	width: 200px !important;
-	height: 100px !important;
+	width: 250px !important;
+	/*height: 100px !important;*/
 }
 
 /* overview window */

@@ -45,10 +45,10 @@ final class Productlist_shortcode {
 	 */
 	public function add_shortcode($atts, $content = null) {
 
-		add_action('wp_enqueue_scripts', array($this, 'add_css'));
-
+		// php fix
 		if (!is_array($atts)) $atts = [];
 
+		// wp query
 		$args = [
 			'post_type' 		=> 'productlist',
 			'posts_per_page' 	=> -1,
@@ -60,6 +60,7 @@ final class Productlist_shortcode {
 		];
 
 
+		// taxonomy
 		$type = false;
 		if (isset($atts['product'])) $type = $atts['product'];
 		if ($type)
@@ -72,15 +73,20 @@ final class Productlist_shortcode {
 				);
 
 
+		// list of post names
 		$names = false;
 		if (isset($atts['name'])) $names = explode(',', preg_replace('/ /', '', $atts['name']));
 		if ($names) $args['post_name__in'] = $names;
 		
+		// if excluded
 		$exclude = get_option('productlist_exclude');
 
 		if (is_array($exclude) && !empty($exclude)) $args['post__not_in'] = $exclude;
 
-		$posts = get_posts($args);	
+		$posts = get_posts($args);
+
+		// no posts found
+		if (!$posts) return;
 
 		$sorted_posts = [];
 		if ($names) {
@@ -93,6 +99,8 @@ final class Productlist_shortcode {
 				
 
 		$html = $this->get_html($posts);
+
+		add_action('wp_enqueue_scripts', array($this, 'add_css'));
 
 		return $html;
 	}
@@ -202,17 +210,18 @@ final class Productlist_shortcode {
 			// grid container
 			$html .= '<li class="productlist-container">';
 
-			$html .= '<div class="productlist-logo"><img class="productlist-image" alt="'.esc_html($p->post_title).'" src="'.get_the_post_thumbnail_url($p, $size = 'post-thumbnail').'"></div>';
-
+			// title
 			$html .= '<div class="productlist-title">'.esc_html($p->post_title).'</div>';
 
-			$html .= '<div class="productlist-price">'.apply_filters('the_content', $meta['productprice']).'</div>';
+			// image
+			$html .= '<div class="productlist-logo"><img class="productlist-image" alt="'.esc_html($p->post_title).'" src="'.get_the_post_thumbnail_url($p, $size = 'post-thumbnail').'"></div>';
 
+			// description
 			$html .= '<div class="productlist-description">'.apply_filters('the_content', $meta['productdescription']).'</div>';
 
-			// wp_die('<xmp>'.print_r($meta, true).'</xmp>');
+			// price
+			$html .= '<div class="productlist-price">'.apply_filters('the_content', $meta['productprice']).'</div>';
 			
-
 			$html .= '</li>';
 		}
 
@@ -249,7 +258,16 @@ final class Productlist_shortcode {
 		return $data;
 	}
 
+	// private function filter_price($data) {
 
+		// $data = '<span class="productlist-price-span">'.$data.'</span>';
+
+		// $data = preg_replace('/\r\r/', '', $data);
+		# $data = preg_replace('/[\r\n]+/', '</span><span class="productlist-price-span">', $data);
+
+		// return $data;
+
+	// }
 
 	/**
 	 * kisses the data
