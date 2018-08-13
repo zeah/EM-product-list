@@ -83,7 +83,7 @@
 		}
 
 		ta.setAttribute('name', 'productlist_data['+o.name+']');
-		ta.appendChild(document.createTextNode(productlist_meta.meta[o.name]));
+		if (productlist_meta.meta[o.name] != undefined) ta.appendChild(document.createTextNode(productlist_meta.meta[o.name]));
 		// ta.setAttribute('value', (productlist_meta.meta[o.name] == undefined) ? '' : productlist_meta.meta[o.name]);
 
 		container.appendChild(ta);

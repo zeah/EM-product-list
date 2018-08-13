@@ -24,12 +24,12 @@ final class Productlist_shortcode {
 	private function wp_hooks() {
 
 		// loan list
-		if (!shortcode_exists('product')) add_shortcode('product', array($this, 'add_shortcode'));
-		else add_shortcode('emproduct', array($this, 'add_shortcode'));
+		if (!shortcode_exists('produkt')) add_shortcode('produkt', array($this, 'add_shortcode'));
+		else add_shortcode('emprodukt', array($this, 'add_shortcode'));
 
 		// loan thumbnail
-		if (!shortcode_exists('product-bilde')) add_shortcode('product-bilde', array($this, 'add_shortcode_bilde'));
-		else add_shortcode('emproduct-bilde', array($this, 'add_shortcode_bilde'));
+		if (!shortcode_exists('produkt-bilde')) add_shortcode('produkt-bilde', array($this, 'add_shortcode_bilde'));
+		else add_shortcode('emprodukt-bilde', array($this, 'add_shortcode_bilde'));
 
 		// loan button
 		// if (!shortcode_exists('product-bestill')) add_shortcode('product-bestill', array($this, 'add_shortcode_bestill'));
@@ -220,7 +220,7 @@ final class Productlist_shortcode {
 			$html .= '<div class="productlist-description">'.apply_filters('the_content', $meta['productdescription']).'</div>';
 
 			// price
-			$html .= '<div class="productlist-price">'.apply_filters('the_content', $meta['productprice']).'</div>';
+			if ($meta['productprice']) $html .= '<div class="productlist-price"><b>Pris:</b>'.apply_filters('the_content', $meta['productprice']).'</div>';
 			
 			$html .= '</li>';
 		}

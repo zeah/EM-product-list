@@ -2,7 +2,7 @@
 /*
 Plugin Name: EM Produkt liste
 Description: 
-Version: 0.0.1
+Version: 0.0.2
 GitHub Plugin URI: zeah/EM-product-list
 */
 
