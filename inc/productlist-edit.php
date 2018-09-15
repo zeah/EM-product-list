@@ -39,7 +39,7 @@ final class Productlist_edit {
 	 * @param [array] $data [array passing through theme filter]
 	 */
 	public function add_doc($data) {
-		$data['productlist']['title'] = '<h1 id="productlist">Lånlist Sverige (Plugin)</h1>';
+		$data['productlist']['title'] = '<h1 id="productlist">Product list (Plugin)</h1>';
 
 		$data['productlist']['index'] = '<li><h2><a href="#productlist">Product List (Plugin)</a></h2>
 											<ul>
